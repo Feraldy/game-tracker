@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from './lib/supabase'
-import { Team, Match, UserTeam } from './types'
+import type { Team, Match, UserTeam } from './types'
 import TeamSelector from './components/TeamSelector'
 import MatchList from './components/MatchList'
 import './App.css'

@@ -1,5 +1,5 @@
 import { Calendar, Trophy, Clock } from 'lucide-react'
-import { Match } from '../types'
+import type { Match } from '../types'
 
 interface MatchListProps {
   title: string
@@ -27,7 +27,7 @@ const MatchList = ({ title, matches, type }: MatchListProps) => {
   }
 
   const getWinner = (match: Match) => {
-    if (match.status === 'completed' && match.team1_score !== null && match.team2_score !== null) {
+    if (match.status === 'completed' && typeof match.team1_score === 'number' && typeof match.team2_score === 'number') {
       if (match.team1_score > match.team2_score) return 'team1'
       if (match.team2_score > match.team1_score) return 'team2'
     }
@@ -48,7 +48,7 @@ const MatchList = ({ title, matches, type }: MatchListProps) => {
       ) : (
         <div className="matches">
           {matches.map(match => {
-            const { date, time } = formatDate(match.match_date)
+            const { date } = formatDate(match.match_date)
             const winner = getWinner(match)
             
             return (

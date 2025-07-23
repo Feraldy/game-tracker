@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Search, X, Plus } from 'lucide-react'
 import { supabase } from '../lib/supabase'
-import { Team } from '../types'
+import type { Team } from '../types'
 
 interface TeamSelectorProps {
   selectedTeams: Team[]
