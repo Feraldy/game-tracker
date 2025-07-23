@@ -24,6 +24,21 @@
   font-size: 1.1rem;
 }
 
+
+.error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.2rem;
+  color: #e53e3e;
+  background-color: #fff5f5;
+  border: 1px solid #f56565;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+}
+
 .loading {
   display: flex;
   justify-content: center;

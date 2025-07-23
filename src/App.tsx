@@ -10,8 +10,14 @@ function App() {
   const [upcomingMatches, setUpcomingMatches] = useState<Match[]>([])
   const [pastMatches, setPastMatches] = useState<Match[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    if (!supabase) {
+      setError("Supabase credentials are not configured. Please check your environment variables.")
+      setLoading(false)
+      return
+    }
     loadUserTeams()
   }, [])
 
@@ -73,6 +79,10 @@ function App() {
 
   const handleTeamRemove = (teamId: string) => {
     setSelectedTeams(prev => prev.filter(team => team.id !== teamId))
+  }
+
+  if (error) {
+    return <div className="error-message">{error}</div>
   }
 
   if (loading) {
